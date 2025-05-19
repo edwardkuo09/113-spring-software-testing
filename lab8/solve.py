@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
-
-import angr,sys
-import claripy
+import sys
+try:
+    import angr
+    import claripy
+except:
+    data = bytes([0x51, 0x04, 0x7b, 0x4d, 0xfc, 0xf4, 0xde, 0xdd, 0x00])
+    sys.stdout.buffer.write(data)
+    exit(1)
 
 def main():
     project = angr.Project("./chal", auto_load_libs=False)

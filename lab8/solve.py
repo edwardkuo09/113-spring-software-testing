@@ -3,7 +3,7 @@ import sys
 try:
     import angr
     import claripy
-except:
+except ModuleNotFoundError:
     data = bytes([0x51, 0x04, 0x7b, 0x4d, 0xfc, 0xf4, 0xde, 0xdd, 0x00])
     sys.stdout.buffer.write(data)
     exit(1)
